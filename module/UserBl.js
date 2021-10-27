@@ -33,7 +33,7 @@ const login = (userEmail, userPassword) => {
                         resolve("your email or password incorrect")
                     } else {
                         const tokenData = jwt.sign({id: data[0]._id},
-                            "USER_SECRETE_KEY",
+                            process.env.SECRET_USER_KEY,
                             {expiresIn: 7100});
                         resolve(tokenData);
                     }

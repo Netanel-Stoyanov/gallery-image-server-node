@@ -6,7 +6,7 @@ const verifyJwt = (req, res, next) => {
     if (token === null || !token) {
         res.status(403).send("please login");
     } else {
-        jwt.verify(token, "USER_SECRETE_KEY", (err, decoded) => {
+        jwt.verify(token, process.env.SECRET_USER_KEY, (err, decoded) => {
             if (err) {
                 res.status(403).send("forbidden");
             } else {
